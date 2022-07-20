@@ -7,7 +7,9 @@
   "scripts": {},
   "main": {
     "source": "src",
-    "dependencies": {}
+    "dependencies": {
+      "github:FlatLang/Standard-Library": "master"
+    }
   },
   "test": {
     "mainClass": "flatlang/http/Time_TestSuite",
