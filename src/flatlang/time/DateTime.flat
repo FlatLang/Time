@@ -1,7 +1,6 @@
 package "flatlang/time"
 
 import "flatlang/datastruct/Comparable"
-import "flatlang/datastruct/Tuple2"
 import "flatlang/regex/Regex"
 
 import "flatlang/operators/LessThanOperator"
