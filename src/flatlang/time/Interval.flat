@@ -25,7 +25,7 @@ class Interval {
         get {
             var Int months = 0
 
-            let current = new DateTime(end)
+            let current = DateTime(end)
 
             while (start.year != current.year || start.month != current.month) {
                 current.subtractMonth()
@@ -44,7 +44,7 @@ class Interval {
         get {
             var Int years = 0
 
-            let current = new DateTime(end)
+            let current = DateTime(end)
 
             while (start.year != current.year) {
                 current.subtractYear()
@@ -59,16 +59,16 @@ class Interval {
 
     public construct(DateTime start = null, DateTime end = null) {
         if (start == null || end == null) {
-            return new BoundlessInterval(start, end)
+            return BoundlessInterval(start, end)
         } else {
-            return new BoundedInterval(start, end)
+            return BoundedInterval(start, end)
         }
     }
 
     public getGap(Interval other) -> Interval {
-        if (end <= other.start) return new BoundedInterval(end, other.start)
-        else if (start >= other.end) return new BoundedInterval(other.end, start)
-        else throw new NoGapException(this, other)
+        if (end <= other.start) return BoundedInterval(end, other.start)
+        else if (start >= other.end) return BoundedInterval(other.end, start)
+        else throw NoGapException(this, other)
     }
 
     public toString() => "Interval [#start, #end]"

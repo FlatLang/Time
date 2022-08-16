@@ -27,7 +27,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
 
     public construct(String input, String: format = null) {
         if (format == null) {
-            throw new Exception("implicit formats not implemented yet")
+            throw Exception("implicit formats not implemented yet")
         }
 
         Regex.getMatches("yyyy", format).forEach(match => {
@@ -59,11 +59,11 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
 
     public construct(this Int: year = 0, this Int: month = 1, this Int: dayOfMonth = 1, this Int: hour = 0, this Int: minute = 0, this Int: second = 0, Int: millisecond = 0) {
         if (month <= 0 || month > 12) {
-            throw new InvalidDateException("Invalid month #{month}. Must be 1-12")
+            throw InvalidDateException("Invalid month #{month}. Must be 1-12")
         } else if (!Calculator.isValidDayOfMonth(year, month, dayOfMonth)) {
-            throw new InvalidDateException("Invalid day of month #dayOfMonth for month #month")
+            throw InvalidDateException("Invalid day of month #dayOfMonth for month #month")
         } else if (month == 2 && dayOfMonth == 29 && !isLeapYear) {
-            throw new InvalidDateException("Year #year is not a leap year")
+            throw InvalidDateException("Year #year is not a leap year")
         }
 
         millis = calculateMillis() + millisecond

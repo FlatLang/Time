@@ -4,22 +4,22 @@ import "flatlang/time/Interval.InvalidIntervalException"
 import "flatlang/time/Interval.IntervalException"
 
 class BoundlessInterval extends Interval {
-    visible Int days => throw new InfiniteIntervalException("days")
+    visible Int days => throw InfiniteIntervalException("days")
 
-    visible Long seconds => throw new InfiniteIntervalException("seconds")
-    visible Int remainingSeconds => throw new InfiniteIntervalException("remainingSeconds")
+    visible Long seconds => throw InfiniteIntervalException("seconds")
+    visible Int remainingSeconds => throw InfiniteIntervalException("remainingSeconds")
 
-    visible Long milliseconds => throw new InfiniteIntervalException("milliseconds")
-    visible Int remainingMilliseconds => throw new InfiniteIntervalException("remainingMilliseconds")
+    visible Long milliseconds => throw InfiniteIntervalException("milliseconds")
+    visible Int remainingMilliseconds => throw InfiniteIntervalException("remainingMilliseconds")
 
-    visible Int months => throw new InfiniteIntervalException("months")
-    visible Int remainingMonths => throw new InfiniteIntervalException("remainingMonths")
+    visible Int months => throw InfiniteIntervalException("months")
+    visible Int remainingMonths => throw InfiniteIntervalException("remainingMonths")
 
-    visible Int years => throw new InfiniteIntervalException("years")
+    visible Int years => throw InfiniteIntervalException("years")
 
     public construct(this super DateTime start, this super DateTime end) {
         if (start != null && end != null) {
-            throw new InvalidIntervalException("BoundlessInterval requires a null start or end DateTime: #this")
+            throw InvalidIntervalException("BoundlessInterval requires a null start or end DateTime: #this")
         }
     }
 
