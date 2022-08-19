@@ -1,4 +1,4 @@
-package "flatlang/time"
+package flatlang/time
 
 class CumulativeTimer extends Timer {
     visible var Long duration <=> duration

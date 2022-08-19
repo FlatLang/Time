@@ -1,4 +1,4 @@
-package "flatlang/time"
+package flatlang/time
 
 /// Class that represents a time interval. The start and end DateTimes indicate
 /// the start and end of the time interval. A null value for the start DateTime

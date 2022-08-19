@@ -1,4 +1,4 @@
-package "flatlang/time"
+package flatlang/time
 
 class Time {
     [Target c] external long currentTimeMillis() as extCurrentTimeMillis
