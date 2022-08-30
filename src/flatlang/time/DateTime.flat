@@ -164,6 +164,9 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         public construct(String message) => super(message)
     }
 
+    public static now() -> DateTime => null
+    public toIsoString() -> String => null
+
     class Calculator {
         public static getLeapYearCount(Int year, Bool inclusive = true) -> Int {
             var Int sum = 0
