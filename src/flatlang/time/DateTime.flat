@@ -22,7 +22,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     visible static Long SECS_HOUR = 60 * 60 * 1000
     visible static Long SECS_MINUTE = 60 * 1000
     visible static Int EPOCH_YEAR = 1970
-    visible static /*immutable*/ Byte[] MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    visible static Byte[] MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     visible static Byte[] LEAP_MONTH_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     public construct(String input, String: format = null) {
@@ -57,19 +57,37 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
         second = Calculator.getSecond(millis)
     }
 
-    public construct(this Int: year = 0, this Int: month = 1, this Int: dayOfMonth = 1, this Int: hour = 0, this Int: minute = 0, this Int: second = 0, Int: millisecond = 0) {
+    public construct(
+      this Int: year = 0,
+      this Int: month = 1,
+      this Int: dayOfMonth = 1,
+      this Int: hour = 0,
+      this Int: minute = 0,
+      this Int: second = 0,
+      Int: millisecond = 0
+    ) {
         if (month <= 0 || month > 12) {
             throw InvalidDateException("Invalid month #{month}. Must be 1-12")
-        } else if (!Calculator.isValidDayOfMonth(year, month, dayOfMonth)) {
+        } else if (!Calculator.isValidDayOfMonth(year,
+        month,
+        dayOfMonth)) {
             throw InvalidDateException("Invalid day of month #dayOfMonth for month #month")
         } else if (month == 2 && dayOfMonth == 29 && !isLeapYear) {
             throw InvalidDateException("Year #year is not a leap year")
         }
 
-        millis = calculateMillis() + millisecond
+        this(millis: calculateMillis() + millisecond)
     }
 
-    calculateMillis(Int year = year, Int month = month, Int dayOfMonth = dayOfMonth, Int hour = hour, Int minute = minute, Int second = second, Int millisecond = millisecond) =>
+    calculateMillis(
+      Int year = year,
+      Int month = month,
+      Int dayOfMonth = dayOfMonth,
+      Int hour = hour,
+      Int minute = minute,
+      Int second = second,
+      Int millisecond = millisecond
+    ) =>
         Calculator.getYearMillis(year) +
         Calculator.getMonthMillis(year, month) +
         Calculator.getDayMillis(dayOfMonth) +
