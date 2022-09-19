@@ -1,7 +1,7 @@
-package flatlang/time
+package flat/time
 
-import flatlang/time/Interval.InvalidIntervalException
-import flatlang/time/Interval.IntervalException
+import flat/time/Interval.InvalidIntervalException
+import flat/time/Interval.IntervalException
 
 class BoundlessInterval extends Interval {
     visible Int days => throw InfiniteIntervalException("days")

@@ -1,6 +1,6 @@
-package flatlang/time
+package flat/time
 
-import flatlang/time/NativeDate.h
+import flat/time/NativeDate.h
 
 class Date {
     external void nova_updateTime()

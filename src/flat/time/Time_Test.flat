@@ -1,4 +1,4 @@
-package flatlang/time
+package flat/time
 
 testable class {
   test `can create`() {

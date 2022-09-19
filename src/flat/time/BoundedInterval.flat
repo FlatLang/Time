@@ -1,6 +1,6 @@
-package flatlang/time
+package flat/time
 
-import flatlang/time/Interval.InvalidIntervalException
+import flat/time/Interval.InvalidIntervalException
 
 class BoundedInterval extends Interval {
     public construct(this super DateTime start, this super DateTime end) {
