@@ -2,7 +2,6 @@ package flat/time
 
 import flat/datastruct/Comparable
 import flat/regex/Regex
-
 import flat/operators/LessThanOperator
 import flat/operators/LessThanOrEqualToOperator
 import flat/operators/GreaterThanOperator
