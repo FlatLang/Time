@@ -1,7 +1,8 @@
 package flat/time
 
 class Timer {
-    visible var Long startTime, endTime
+    visible var Long startTime
+    visible var Long endTime
 
     visible Long duration => endTime - startTime
 

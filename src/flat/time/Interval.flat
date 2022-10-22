@@ -5,7 +5,8 @@ package flat/time
 /// represents "from the beginning of time", while a null value for the end
 /// DateTime represents "to the end of time".
 class Interval {
-    public DateTime start, end
+    public DateTime start
+    public DateTime end
 
     visible Long days => (end.millis - start.millis) / DateTime.SECS_DAY
 
