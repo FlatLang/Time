@@ -35,8 +35,6 @@ class Interval {
 
             return months
         }
-
-        no set
     }
 
     visible Int remainingMonths => months % 12
@@ -54,8 +52,6 @@ class Interval {
 
             return years
         }
-
-        no set
     }
 
     public construct(DateTime start = null, DateTime end = null) {
