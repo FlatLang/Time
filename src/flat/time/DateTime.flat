@@ -11,7 +11,13 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     /// Milliseconds since January 1 1970
     visible var Long millis
 
-    visible var Int year, month, dayOfMonth, dayOfYear, hour, minute, second
+    visible var Int year
+    visible var Int month
+    visible var Int dayOfMonth
+    visible var Int dayOfYear
+    visible var Int hour
+    visible var Int minute
+    visible var Int second
 
     public Int millisecond => millis % 1000
 
