@@ -32,7 +32,7 @@ class {
     }
 
     public toIsoString() -> String => null {
-        native var Char[] isoString
+        native_array native var Char[] isoString
 
         external {
           #{isoString} = #{jsDate}.toISOString();
