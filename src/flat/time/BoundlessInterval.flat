@@ -24,6 +24,6 @@ class BoundlessInterval extends Interval {
     }
 
     class InfiniteIntervalException extends IntervalException {
-        public construct(String property) => super("Cannot get property '#property' from boundless interval (cannot return infinite integer)")
+        public construct(String property = null) => super("Cannot get property '#property' from boundless interval (cannot return infinite integer)")
     }
 }
