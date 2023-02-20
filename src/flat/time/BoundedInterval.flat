@@ -3,13 +3,13 @@ package flat/time
 import flat/time/Interval.InvalidIntervalException
 
 class BoundedInterval extends Interval {
-    public construct(this super DateTime start, this super DateTime end) {
-        if (start == null || end == null) {
-            throw InvalidIntervalException("Bounded interval cannot have open-ended bounds: #this")
-        } else {
-            if (start > end) {
-                throw InvalidIntervalException("Interval from #start to #end is invalid")
-            }
-        }
+  public construct(this super DateTime start, this super DateTime end) {
+    if (start == null || end == null) {
+      throw InvalidIntervalException("Bounded interval cannot have open-ended bounds: #this")
+    } else {
+      if (start > end) {
+        throw InvalidIntervalException("Interval from #start to #end is invalid")
+      }
     }
+  }
 }
