@@ -22,7 +22,7 @@ class Timer {
     endTime = 0
   }
 
-  public toString() => "Timer { duration: #duration }"
+  public toString() => "#{duration}ms"
 
   public static time(action(), callback(Timer) = {}) -> Timer {
     var t = Timer().start()
