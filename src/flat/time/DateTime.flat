@@ -162,11 +162,11 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     }
 
     class InvalidDateException extends Exception {
-        public construct(String message) => super(message)
+        public construct(String message = null) => super(message)
     }
 
     class InvalidDateFormatException extends InvalidDateException {
-        public construct(String message) => super(message)
+        public construct(String message = null) => super(message)
     }
 
     public static now() -> DateTime => null
