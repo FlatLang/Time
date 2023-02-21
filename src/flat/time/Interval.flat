@@ -4,7 +4,7 @@ package flat/time
 /// the start and end of the time interval. A null value for the start DateTime
 /// represents "from the beginning of time", while a null value for the end
 /// DateTime represents "to the end of time".
-class Interval {
+abstract class Interval {
   public DateTime start
   public DateTime end
 
@@ -54,7 +54,7 @@ class Interval {
     }
   }
 
-  public construct(DateTime start = null, DateTime end = null) {
+  public static create(DateTime start = null, DateTime end = null) -> Interval {
     if (start == null || end == null) {
       return BoundlessInterval(start, end)
     } else {
@@ -71,14 +71,14 @@ class Interval {
   public toString() => "Interval [#start, #end]"
 
   class IntervalException extends Exception {
-    public construct(String message) => super(message)
+    public construct(String message = null) => super(message)
   }
 
   class InvalidIntervalException extends IntervalException {
-    public construct(String message) => super(message)
+    public construct(String message = null) => super(message)
   }
 
   class NoGapException extends IntervalException {
-    public construct(Interval first, Interval second) => super("Cannot get a gap from overlapping Intervals #first and #second")
+    public construct(Interval first = null, Interval second = null) => super("Cannot get a gap from overlapping Intervals #first and #second")
   }
 }

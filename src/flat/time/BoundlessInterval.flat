@@ -17,7 +17,7 @@ class BoundlessInterval extends Interval {
 
   visible Int years => throw InfiniteIntervalException("years")
 
-  public construct(this super DateTime start, this super DateTime end) {
+  public construct(this DateTime start = null, this DateTime end = null) {
     if (start != null && end != null) {
       throw InvalidIntervalException("BoundlessInterval requires a null start or end DateTime: #this")
     }
