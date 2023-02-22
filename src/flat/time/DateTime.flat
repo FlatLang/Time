@@ -19,7 +19,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
   visible var Int minute
   visible var Int second
 
-  public Int millisecond => millis % 1000
+  public Int millisecond => (Int)(millis % 1000)
 
   visible Bool isLeapYear => Calculator.isLeapYear(year)
 
@@ -205,7 +205,8 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
       var Long millis = 0
 
       while (month > 0) {
-        millis += (Long)(getMonthDays(year)[month - 1]) * 24 * 60 * 60 * 1000
+        let monthDays = getMonthDays(year)[month - 1].value
+        millis += (Long)monthDays * 24 * 60 * 60 * 1000
 
         --month
       }
@@ -226,7 +227,7 @@ class DateTime implements Comparable<DateTime>, LessThanOperator<DateTime>, Less
     public static getSecond(Long millis) => (millis / 1000) % 60
     public static getMillisecond(Long millis) => millis % 1000
 
-    public static getYearSize(Int year) => isLeapYear(year) ? 366 : 365
+    public static getYearSize(Int year) -> Int => isLeapYear(year) ? 366 : 365
     public static getMonthDays(Int year) => isLeapYear(year) ? DateTime.LEAP_MONTH_DAYS : DateTime.MONTH_DAYS
 
     public static getYearAndDay(Long millis) -> Int[] {
