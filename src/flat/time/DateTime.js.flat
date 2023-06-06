@@ -1,43 +1,43 @@
 package flat/time
 
 class {
-  let Object jsDate
+    let Object jsDate
 
-  public construct(this Long: millis) {
-    let yearAndDay = Calculator.getYearAndDay(millis)
-    year = yearAndDay.first
-    dayOfYear = yearAndDay.last
+    public construct(this Long: millis) {
+        let yearAndDay = Calculator.getYearAndDay(millis)
+        year = yearAndDay.first
+        dayOfYear = yearAndDay.last
 
-    let monthAndDay = Calculator.getMonthAndDay(year, dayOfYear)
-    month = monthAndDay.first
-    dayOfMonth = monthAndDay.last
+        let monthAndDay = Calculator.getMonthAndDay(year, dayOfYear)
+        month = monthAndDay.first
+        dayOfMonth = monthAndDay.last
 
-    hour = Calculator.getHour(millis)
-    minute = Calculator.getMinute(millis)
-    second = Calculator.getSecond(millis)
+        hour = Calculator.getHour(millis)
+        minute = Calculator.getMinute(millis)
+        second = Calculator.getSecond(millis)
 
-    external {
-      #{jsDate} = new Date(#{millis});
-    }
-  }
-
-  public static now() -> DateTime => null {
-    var Long millis
-
-    external {
-      #{millis} = Date.now();
+        external {
+            #{jsDate} = new Date(#{millis});
+        }
     }
 
-    return DateTime(millis)
-  }
+    public static now() -> DateTime => null {
+        var Long millis
 
-  public toIsoString() -> String => null {
-    native_array native var Char[] isoString
+        external {
+            #{millis} = Date.now();
+        }
 
-    external {
-      #{isoString} = #{jsDate}.toISOString();
+        return DateTime(millis)
     }
 
-    return String(isoString)
-  }
+    public toIsoString() -> String => null {
+        native_array native var Char[] isoString
+
+        external {
+            #{isoString} = #{jsDate}.toISOString();
+        }
+
+        return String(isoString)
+    }
 }
